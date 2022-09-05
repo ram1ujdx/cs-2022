@@ -1,36 +1,68 @@
 <h2>Employee Registration Form</h2>
-<form class="form-group">
+<form (submit)="addEmployee(employeeForm.value)" class="form-group" #employeeForm="ngForm">
 
     <div class="row">
-                <div class="col-lg-2">
-                    <label for="employeeName" class="form-label">Employee Name</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="form-control" type="text" name="employeeName" id="employeeName"
-                        placeholder="Input your name" required pattern="[a-zA-Z\s]+">
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="form-label" for="employeeId">ID</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="form-control" type="number" name="employeeId" id="employeeId"
-                        placeholder="Inpunt ID" min="0" minlength="6">
-                </div>
-            </div>
-        <div class="row">
-            <div class="col-lg-2">
+        <div class="col-lg-2">
+            <label for="employeeName" class="form-label">Employee Name</label>
+        </div>
+        <div class="col-lg-10">
+            <input class="form-control" type="text" name="employeeName" ngModel id="employeeName"
+                placeholder="Input your name" required pattern="[a-zA-Z\s]+" #employeeNameT="ngModel"
+                [class.is-invalid]="employeeNameT.touched && employeeNameT.invalid"
+                [class.is-valid]="employeeNameT.dirty && employeeNameT.valid">
+            <p *ngIf="employeeNameT.touched">
+                <small class="text-danger" *ngIf="employeeNameT.errors?.['required']">Employee Name is required</small>
+                <small class="text-danger" *ngIf="employeeNameT.errors?.['pattern']">Input a valid Employee Name</small>
+            </p> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-label" for="employeeId">ID</label>
+        </div>
+        <div class="col-lg-10">
+            <input class="form-control" type="number" ngModel name="employeeId" id="employeeId" placeholder="Inpunt ID"
+                required min="0" minlength="6" #employeeIdT="ngModel">
+                <p *ngIf="employeeIdT.touched">
+                    <small class="text-danger" *ngIf="employeeIdT.errors?.['required']">Employee ID is required</small>
+                    <small class="text-danger" *ngIf="employeeIdT.errors?.['min']">Input a valid Employee ID</small>
+                </p> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
             <label class="form-label" for="joinDate">Date Joined</label>
-            </div>
-            <div class="col-lg-10">
-            <input class="form-control" type="date" name="joinDate" id="joinDate">
         </div>
+        <div class="col-lg-10">
+            <input class="form-control" ngModel required type="date" name="joinDate" id="joinDate" #joinDateT="ngModel">
+            <p *ngIf="employeeIdT.touched">
+                <small class="text-danger" *ngIf="joinDateT.errors?.['required']">Join Date is required</small>
+            </p> 
         </div>
-        <div>
-            <button class="btn btn-primary" type="submit">Submit</button>
-            <button class="btn btn-danger" type="reset">Clear Form</button>
-        </div>
+    </div>
+    <div>
+        <button [disabled]="employeeForm.invalid" class="btn btn-primary" type="submit">Submit</button> | 
+        <button class="btn btn-danger" type="reset">Clear Form</button>
+    </div>
 </form>
 
+<div class="empListTab">
+<h3>List of Employees</h3>
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date Joined</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employeeList">
+            <td>{{emp.employeeId}}</td>
+            <td>{{emp.employeeName}}</td>
+            <td>{{emp.joinDate}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,3 +1,3 @@
 export class Employee{
-    constructor(public id:number,public employeeName:string,public joinDate:Date){}
+    constructor(public employeeId:number,public employeeName:string,public joinDate:Date){}
 }

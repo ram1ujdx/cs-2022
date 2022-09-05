@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../Employee';
 
 @Component({
   selector: 'app-add-employee',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEmployeeComponent implements OnInit {
 
+  employeeList:Array<Employee>=[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addEmployee(employee:Employee){
+    this.employeeList.push(employee)
+    console.log(this.employeeList)
   }
 
 }
