@@ -21,9 +21,13 @@ public class App
 //    	
 //    	String song = scan.nextLine();
     	
-    	Phone phone = context.getBean(Phone.class);
-    	
-    	
-       phone.playMusic("Hello");
+//    	Phone phone = context.getBean(Phone.class);
+//    	
+//    	
+//    	Phone phone2 = context.getBean(Phone.class);
+//    	
+//    	Phone phone3 = context.getBean(Phone.class);
+//    	
+//       phone.playMusic("Hello");
     }
 }

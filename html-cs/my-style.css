@@ -1,0 +1,30 @@
+/* Element Selector */
+label,h2{
+    color: blue;
+}
+
+/* Class Selector */
+.inp{
+    padding-left: 20px;
+}
+
+/* ID Selector */
+#employeeName{
+    background-color: aqua;
+}
+
+.btns:hover{
+    background-color: grey;
+}
+
+/* *{
+    color: darkgreen;
+} */
+
+.btn-div{
+    border: 2px solid blue;
+    margin-left: 100px;
+    margin-top: 30px;
+    padding: 20px;
+    width: fit-content;
+}

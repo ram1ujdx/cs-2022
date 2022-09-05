@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+   
+</head>
+<body>
+   Person Name <input type="text" id="pname" placeholder="Enter Name">
+    <button onclick="addPerson()">Add Person</button>
+<p>Person List</p>
+<ul id="plist">
+
+</ul>
+
+</body>
+
+<script>
+    let persons=[];
+    function addPerson(){
+        let personName = document.getElementById('pname').value;
+        persons.push(personName)
+
+        updateList()
+    }
+
+    function updateList(){
+       
+       let content='';
+        for(let pname of persons){
+            content+='<li>'+pname+'</li>';
+        }
+
+        document.getElementById("plist").innerHTML=content;
+    }
+
+</script>
+</html>
