@@ -1,1 +1,36 @@
-<p>add-employee works!</p>
+<h2>Employee Registration Form</h2>
+<form class="form-group">
+
+    <div class="row">
+                <div class="col-lg-2">
+                    <label for="employeeName" class="form-label">Employee Name</label>
+                </div>
+                <div class="col-lg-10">
+                    <input class="form-control" type="text" name="employeeName" id="employeeName"
+                        placeholder="Input your name" required pattern="[a-zA-Z\s]+">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="form-label" for="employeeId">ID</label>
+                </div>
+                <div class="col-lg-10">
+                    <input class="form-control" type="number" name="employeeId" id="employeeId"
+                        placeholder="Inpunt ID" min="0" minlength="6">
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-2">
+            <label class="form-label" for="joinDate">Date Joined</label>
+            </div>
+            <div class="col-lg-10">
+            <input class="form-control" type="date" name="joinDate" id="joinDate">
+        </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-danger" type="reset">Clear Form</button>
+        </div>
+</form>
+
