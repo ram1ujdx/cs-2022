@@ -10,11 +10,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let emp of _employeeData.employeeList">
+            <tr *ngFor="let emp of employeeList">
                 <td>{{emp.employeeId}}</td>
                 <td>{{emp.employeeName}}</td>
                 <td>{{emp.joinDate}}</td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><button (click)="deleteEmployee(emp.employeeId)" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>

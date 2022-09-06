@@ -11,24 +11,40 @@ import { EmployeeDataService } from '../employee-data.service';
 })
 export class ViewEmployeeComponent implements OnInit {
 
-  constructor(public _employeeClient:EmployeeClientService, public _employeeData:EmployeeDataService) { }
+  constructor(public _employeeClient:EmployeeClientService) { }
 
+  employeeList:Array<Employee>=[];
+
+  fetchData(){
+    this._employeeClient.getAllEmployees().subscribe(
+      data => {
+        
+        this.employeeList=data;
+      }
+
+  )
+  }
 
   ngOnInit(): void {
+    this.fetchData();
 
-    this._employeeClient.getAllEmployees().subscribe(
-        data => {
-          
-          this._employeeData.employeeList=data;
-        }
-
-    )
+   
 
   }
 
 
   deleteEmployee(employeeId:number){
     
+    if(confirm("Sure to delete?")){
+
+    this._employeeClient.deleteEmployee(employeeId).subscribe(
+      data=> {
+        alert("Deleted Successfully!!")
+        this.fetchData()
+      }
+    )
+
   }
+}
 
 }

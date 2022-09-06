@@ -21,4 +21,8 @@ export class EmployeeClientService {
     return this._http.post<Employee>(this.baseUrl,employee);
   }
 
+  deleteEmployee(id:number):Observable<any>{
+    return this._http.delete(this.baseUrl+"/"+id);
+  }
+
 }
