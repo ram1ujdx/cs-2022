@@ -16,4 +16,6 @@ public interface EmployeeService {
 	
 	public Employee updateEmployee(Employee employee);
 	
+	public Employee searchEmployeeByName(String employeeName);
+	
 }
