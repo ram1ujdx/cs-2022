@@ -11,4 +11,4 @@ https://docs.google.com/spreadsheets/d/1iukmxtsZXY1S2wxx0ZzIUh7tDNeG5DJLgrCWZ6Po
 
 ## AWS Website Link
 
-http://employee-app-frontend.s3-website-us-east-1.amazonaws.com/view-employee
+http://employee-app-frontend.s3-website-us-east-1.amazonaws.com
